@@ -3,7 +3,7 @@ try{ var base = window; }catch( error ){ base = exports; }
 	define( "safeApplyFactory",
 		[
 			"angular"
-		]
+		],
 		function construct( ){
 			var safeApplyFactory = function safeApplyFactory( moduleNamespace ){
 				angular.module( moduleNamespace )
