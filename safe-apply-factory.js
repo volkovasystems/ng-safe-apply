@@ -5,8 +5,13 @@ try{ var base = window; }catch( error ){ base = exports; }
 			"angular"
 		],
 		function construct( ){
+			var registeredModule;
 			var safeApplyFactory = function safeApplyFactory( moduleNamespace ){
-				angular.module( moduleNamespace )
+				if( registeredModule ){
+					return;
+				}
+				registeredModule = moduleNamespace;
+				appDetermine( moduleNamespace )
 					.factory( "safeApply",
 						[
 							function construct( ){
